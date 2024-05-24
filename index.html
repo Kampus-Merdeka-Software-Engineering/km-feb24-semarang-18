@@ -1,14 +1,101 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <h1>Hello World</h1>
-    <h1>Have a nice day</h1>
-    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard Team 18 Semarang</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Dashboard Team 18 Semarang</h1>
+      <div>
+        <div>
+          <label for="store-location-select">Store Location</label>
+          <select id="store-location-select">
+            <option value="all">All</option>
+            <option value="location-1">Location 1</option>
+            <option value="location-2">Location 2</option>
+            <option value="location-3">Location 3</option>
+            <option value="location-4">Location 4</option>
+            <option value="location-5">Location 5</option>
+          </select>
+        </div>
+        <div>
+          <label for="transaction-range-select">Transaction Range</label>
+          <select id="transaction-range-select">
+            <option value="all">All</option>
+            <option value="range-1">Range 1</option>
+            <option value="range-2">Range 2</option>
+            <option value="range-3">Range 3</option>
+            <option value="range-4">Range 4</option>
+            <option value="range-5">Range 5</option>
+          </select>
+        </div>
+        <div>
+          <label for="product-category-select">Product Category</label>
+          <select id="product-category-select">
+            <option value="all">All</option>
+            <option value="category-1">Category 1</option>
+            <option value="category-2">Category 2</option>
+            <option value="category-3">Category 3</option>
+            <option value="category-4">Category 4</option>
+            <option value="category-5">Category 5</option>
+          </select>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div>
+        <h1>Kategori Produk</h1>
+        <canvas id="product-category-chart"></canvas>
+      </div>
+      <div>
+        <h1>Penjualan Produk Terlaris</h1>
+        <canvas id="most-purchased-product-chart"></canvas>
+      </div>
+      <div>
+        <h1>Distribusi Waktu Transaksi</h1>
+        <canvas id="transaction-distribution-time-chart"></canvas>
+      </div>
+      <div>
+        <h1>Tabel Transaksi</h1>
+        <table id="transaction-table" border="1">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Nama Produk</th>
+              <th>Harga</th>
+              <th>Jumlah</th>
+              <th>Waktu</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Produk 1</td>
+              <td>Rp 100</td>
+              <td>10</td>
+              <td>2021-01-01</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Produk 2</td>
+              <td>Rp 200</td>
+              <td>20</td>
+              <td>2021-01-02</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Produk 3</td>
+              <td>Rp 300</td>
+              <td>30</td>
+              <td>2021-01-03</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+    <script src="scripts.js"></script>
+  </body>
 </html>
