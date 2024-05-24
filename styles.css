@@ -1,0 +1,108 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #233a66, #6b83aa); /* Example gradient from dark blue to light blue */
+  }
+  
+  header {
+    background-color: #333; /* Dark background for contrast with white text */
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    color: white; /* Default text color in header */
+  }
+  
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  header h1 {
+    color: white; /* Ensure header title is white */
+  }
+  
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+  }
+  
+  nav ul li {
+    margin-right: 20px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: white; /* Ensure nav links are white */
+  }
+  
+  .filter-group {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  
+  .filter-item {
+    margin-right: 10px;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  .chart-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .chart-container {
+    background-color: #f5f5dc; /* cream color */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .chart-container canvas {
+    width: 100% !important;
+    height: auto !important;
+  }
+  
+  section {
+    margin-bottom: 20px;
+  }
+  
+  #transaction-table {
+    width: 100%;
+    border-collapse: collapse; /* To make borders collapse into a single border */
+    background-color: #ffd691; /* Set background color to #ffd691 */
+  }
+  
+  #transaction-table th, #transaction-table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd; /* Add border to table cells */
+  }
+  
+  #transaction-table thead {
+    background-color: #f8f8f8; /* Light grey background for header */
+  }
+  
+  #transaction-table tbody tr:nth-child(even) {
+    background-color: #ffecb3; /* Light variant of the table background color for even rows */
+  }
+  footer {
+    background-color: #f8f8f8;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    text-align: center;
+  }
+  
+  .footer-links a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #333;
+  }
+  
