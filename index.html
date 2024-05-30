@@ -5,7 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard Team 18 Semarang</title>
     <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css"
+    />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
   </head>
   <body>
     <header>
@@ -13,10 +19,8 @@
         <h1>Dashboard Team 18 Semarang</h1>
         <nav>
           <ul>
-            <li><a href="#product-category-section">Kategori Produk</a></li>
-            <li><a href="#most-purchased-product-section">Penjualan Terlaris</a></li>
-            <li><a href="#transaction-distribution-time-section">Distribusi Waktu Transaksi</a></li>
-            <li><a href="#transaction-table-section">Tabel Transaksi</a></li>
+            <li><a href="#product-category-section">Dashboard</a></li>
+            <li><a href="#most-purchased-product-section">Our Team</a></li>
           </ul>
         </nav>
       </div>
@@ -25,11 +29,6 @@
           <label for="store-location-select">Store Location</label>
           <select id="store-location-select" aria-label="Store Location">
             <option value="all">All</option>
-            <option value="location-1">Location 1</option>
-            <option value="location-2">Location 2</option>
-            <option value="location-3">Location 3</option>
-            <option value="location-4">Location 4</option>
-            <option value="location-5">Location 5</option>
           </select>
         </div>
         <div class="filter-item">
@@ -55,6 +54,7 @@
           </select>
         </div>
       </div>
+      <div id="total-revenue">Total Revenue: $0.00</div>
     </header>
     <main>
       <div class="chart-grid">
@@ -66,14 +66,17 @@
           <h2>Penjualan Produk Terlaris</h2>
           <canvas id="most-purchased-product-chart"></canvas>
         </section>
-        <section id="transaction-distribution-time-section" class="chart-container">
+        <section
+          id="transaction-distribution-time-section"
+          class="chart-container"
+        >
           <h2>Distribusi Waktu Transaksi</h2>
           <canvas id="transaction-distribution-time-chart"></canvas>
         </section>
       </div>
       <section id="transaction-table-section">
         <h2>Tabel Transaksi</h2>
-        <table id="transaction-table" border="1">
+        <table id="transaction-table">
           <thead>
             <tr>
               <th>No</th>
@@ -81,41 +84,15 @@
               <th>Harga</th>
               <th>Jumlah</th>
               <th>Waktu</th>
+              <th>Lokasi</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>Produk 1</td>
-              <td>Rp 100</td>
-              <td>10</td>
-              <td>2021-01-01</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Produk 2</td>
-              <td>Rp 200</td>
-              <td>20</td>
-              <td>2021-01-02</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Produk 3</td>
-              <td>Rp 300</td>
-              <td>30</td>
-              <td>2021-01-03</td>
-            </tr>
-          </tbody>
+          <tbody></tbody>
         </table>
       </section>
     </main>
     <footer>
       <p>&copy; 2024 Team 18 Semarang. All rights reserved.</p>
-      <div class="footer-links">
-        <a href="#">Contact Us</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-      </div>
     </footer>
     <script src="scripts.js"></script>
   </body>
