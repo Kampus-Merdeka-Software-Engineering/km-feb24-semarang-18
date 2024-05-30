@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const data = await response.json();
       return data;
     } catch (error) {
-      console.error("Error fetching data:", error);
       return [];
     }
   };
@@ -13,32 +12,37 @@ document.addEventListener("DOMContentLoaded", () => {
   const processData = (data) => {
     const categories = {};
     const mostPurchased = {};
-    const transactionTimes = Array.from({ length: 12 }, () => 0); // Monthly transaction distribution
+    const transactionTimes = {};
     let totalRevenue = 0;
 
     data.forEach((transaction) => {
-      // Calculate total revenue
       totalRevenue += transaction.unit_price * transaction.transaction_qty;
 
-      // Product Category Data
       if (!categories[transaction.product_category]) {
         categories[transaction.product_category] = 0;
       }
       categories[transaction.product_category] += transaction.transaction_qty;
 
-      // Most Purchased Product Data
       if (!mostPurchased[transaction.product_id]) {
         mostPurchased[transaction.product_id] = {
           name: transaction.product_detail,
           count: 0,
         };
       }
+
       mostPurchased[transaction.product_id].count +=
         transaction.transaction_qty;
 
-      // Transaction Distribution Time Data
+      if (!transactionTimes[transaction.product_category]) {
+        transactionTimes[transaction.product_category] = Array.from(
+          { length: 12 },
+          () => 0
+        );
+      }
+
       const month = new Date(transaction.transaction_date).getMonth();
-      transactionTimes[month] += transaction.transaction_qty;
+      transactionTimes[transaction.product_category][month] +=
+        transaction.transaction_qty;
     });
 
     return {
@@ -51,10 +55,15 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const populateStoreLocationSelect = (data) => {
-    const storeLocationSelect = document.getElementById("store-location-select");
-    const uniqueLocations = [...new Set(data.map(transaction => transaction.store_location))];
+    const storeLocationSelect = document.getElementById(
+      "store-location-select"
+    );
 
-    uniqueLocations.forEach(location => {
+    const uniqueLocations = [
+      ...new Set(data.map((transaction) => transaction.store_location)),
+    ];
+
+    uniqueLocations.forEach((location) => {
       const option = document.createElement("option");
       option.value = location;
       option.text = location;
@@ -62,17 +71,40 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
+  const populateProductCategorySelect = (data) => {
+    const productCategorySelect = document.getElementById(
+      "product-category-select"
+    );
+
+    const uniqueCategories = [
+      ...new Set(data.map((transaction) => transaction.product_category)),
+    ];
+
+    uniqueCategories.forEach((category) => {
+      const option = document.createElement("option");
+      option.value = category;
+      option.text = category;
+      productCategorySelect.appendChild(option);
+    });
+  };
+
+  let categoryChart, mostPurchasedChart, transactionTimeChart;
+
   const renderCharts = ({
     categories,
     mostPurchased,
     transactionTimes,
     totalRevenue,
   }) => {
-    // Product Category Chart
+    if (categoryChart) categoryChart.destroy();
+    if (mostPurchasedChart) mostPurchasedChart.destroy();
+    if (transactionTimeChart) transactionTimeChart.destroy();
+
     const categoryChartCtx = document
       .getElementById("product-category-chart")
       .getContext("2d");
-    new Chart(categoryChartCtx, {
+
+    categoryChart = new Chart(categoryChartCtx, {
       type: "bar",
       data: {
         labels: Object.keys(categories),
@@ -95,14 +127,15 @@ document.addEventListener("DOMContentLoaded", () => {
       },
     });
 
-    // Most Purchased Product Chart
     const mostPurchasedChartCtx = document
       .getElementById("most-purchased-product-chart")
       .getContext("2d");
+
     const mostPurchasedData = Object.values(mostPurchased).sort(
       (a, b) => b.count - a.count
     );
-    new Chart(mostPurchasedChartCtx, {
+
+    mostPurchasedChart = new Chart(mostPurchasedChartCtx, {
       type: "pie",
       data: {
         labels: mostPurchasedData.map((item) => item.name),
@@ -134,26 +167,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const transactionTimeChartCtx = document
       .getElementById("transaction-distribution-time-chart")
       .getContext("2d");
-    new Chart(transactionTimeChartCtx, {
+    const datasets = Object.keys(transactionTimes).map((category, index) => ({
+      label: category,
+      data: transactionTimes[category],
+      backgroundColor: `rgba(${index * 50}, 159, 64, 0.2)`,
+      borderColor: `rgba(${index * 50}, 159, 64, 1)`,
+      borderWidth: 1,
+    }));
+
+    transactionTimeChart = new Chart(transactionTimeChartCtx, {
       type: "line",
       data: {
-        labels: [
-          "January",
-          "February",
-          "March",
-          "April",
-          "May",
-          "June",
-        ],
-        datasets: [
-          {
-            label: "Distribusi Waktu Transaksi",
-            data: transactionTimes,
-            backgroundColor: "rgba(255, 159, 64, 0.2)",
-            borderColor: "rgba(255, 159, 64, 1)",
-            borderWidth: 1,
-          },
-        ],
+        labels: ["January", "February", "March", "April", "May", "June"],
+        datasets: datasets,
       },
       options: {
         scales: {
@@ -164,7 +190,6 @@ document.addEventListener("DOMContentLoaded", () => {
       },
     });
 
-    // Display Total Revenue
     document.getElementById(
       "total-revenue"
     ).innerText = `Total Revenue: $${totalRevenue.toFixed(2)}`;
@@ -186,7 +211,6 @@ document.addEventListener("DOMContentLoaded", () => {
       row.insertCell(5).innerText = transaction.store_location;
     });
 
-    // Initialize DataTable
     $("#transaction-table").DataTable({
       pageLength: 10,
       destroy: true,
@@ -194,9 +218,13 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const applyFilters = (data) => {
-    const storeLocation = document.getElementById("store-location-select").value;
-    const transactionRange = document.getElementById("transaction-range-select").value;
-    const productCategory = document.getElementById("product-category-select").value;
+    const storeLocation = document.getElementById(
+      "store-location-select"
+    ).value;
+
+    const productCategory = document.getElementById(
+      "product-category-select"
+    ).value;
 
     let filteredData = data;
 
@@ -204,10 +232,6 @@ document.addEventListener("DOMContentLoaded", () => {
       filteredData = filteredData.filter(
         (transaction) => transaction.store_location === storeLocation
       );
-    }
-
-    if (transactionRange !== "all") {
-      // Implement the logic for filtering based on transaction range
     }
 
     if (productCategory !== "all") {
@@ -228,18 +252,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   fetchData().then((data) => {
     populateStoreLocationSelect(data);
+    populateProductCategorySelect(data);
+
     const initialProcessedData = processData(data);
     renderCharts(initialProcessedData);
     renderTable(initialProcessedData.transactions);
 
-    document
-      .getElementById("store-location-select")
-      .addEventListener("change", () => handleFilters(data));
-    document
-      .getElementById("transaction-range-select")
-      .addEventListener("change", () => handleFilters(data));
-    document
-      .getElementById("product-category-select")
-      .addEventListener("change", () => handleFilters(data));
+    const filterElements = ["store-location-select", "product-category-select"];
+
+    filterElements.forEach((filterElementId) => {
+      document
+        .getElementById(filterElementId)
+        .addEventListener("change", () => handleFilters(data));
+    });
   });
 });
