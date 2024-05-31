@@ -6,8 +6,14 @@ body {
     color: #EFEFEF; /* Warna putih tulang untuk teks */
 }
 
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 header {
-    background-color: #855E42; /* Warna kopi untuk header */
+    background-color: #444; /* Warna kopi untuk header */
     color: #EFEFEF; /* Warna putih tulang untuk teks header */
     padding: 20px;
     text-align: center;
@@ -51,11 +57,11 @@ h1 {
     flex-wrap: wrap;
     justify-content: center;
     padding: 30px;
-    background-color: #D2B48C; /* Warna beige kopi untuk latar belakang tim */
+    background-color: #cac6c6; /* Warna beige kopi untuk latar belakang tim */
 }
 
 .team-member {
-    background-color: #F5F5DC; /* Warna beige lembut untuk kotak anggota tim */
+    background-color: #EFEFEF; /* Warna beige lembut untuk kotak anggota tim */
     border-radius: 15px;
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
     margin: 15px;
@@ -200,4 +206,46 @@ h1 {
 
 .team-member {
     animation: fadeInUp 1s ease-out;
+}
+
+/* Nav Bar Styles for Our Team Page */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+nav ul li {
+  margin-right: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.1em;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #ddd;
+}
+
+footer {
+    background-color: #444;
+    padding: 15px;
+    border-top: 3px solid #666;
+    text-align: center;
+    color: #EFEFEF; /* Warna putih tulang untuk teks footer */
+}
+  
+.footer-links a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #EFEFEF; /* Warna putih tulang untuk link footer */
+    transition: color 0.3s ease;
+}
+  
+.footer-links a:hover {
+    color: #ddd;
 }

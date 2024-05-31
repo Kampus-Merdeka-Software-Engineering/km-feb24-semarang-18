@@ -1,27 +1,30 @@
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
-  background: #f2f2f2; /* Light grey background for better readability */
-  color: #333;
+  background-color: #f2f2f2; /* Kembalikan ke warna latar belakang asal */
+  color: #333; /* Warna teks */
 }
 
 header {
-  background-color: #444; /* Darker background for the header */
+  background-color: #444; /* Kembalikan ke warna latar belakang asal */
   padding: 20px;
-  border-bottom: 3px solid #666; /* Thicker border for the header */
-  color: #fff;
+  border-bottom: 3px solid #666;
+  color: #fff; /* Warna teks */
+}
+
+.filter-group {
+  background-color: #fff; /* Kembalikan ke warna latar belakang asal */
+  border-bottom: 2px solid #ccc;
 }
 
 .header-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
+  width: 100%;
+  background-color: #444; /* Kembalikan ke warna latar belakang asal */;
 
-header h1 {
-  margin: 0;
-  font-size: 2em;
 }
 
 nav ul {
@@ -37,7 +40,7 @@ nav ul li {
 
 nav ul li a {
   text-decoration: none;
-  color: #fff;
+  color: #EFEFEF; /* Warna putih tulang untuk teks navbar */
   font-size: 1.1em;
   transition: color 0.3s ease;
 }
@@ -50,7 +53,7 @@ nav ul li a:hover {
   display: flex;
   justify-content: space-around;
   padding: 20px;
-  background-color: #fff;
+  background-color: #ffffff; /* Warna beige kopi untuk latar belakang filter */
   border-bottom: 2px solid #ccc;
   border-radius: 10px; /* Add rounded corners */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
@@ -84,7 +87,7 @@ nav ul li a:hover {
   text-align: center;
   font-size: 1.5em;
   margin: 20px 0;
-  color: #333;
+  color: #EFEFEF; /* Warna putih tulang untuk teks */
   font-weight: bold;
 }
 
@@ -100,7 +103,7 @@ main {
 }
 
 .chart-container {
-  background-color: #fff;
+  background-color: #ffffff; /* Warna beige lembut untuk kotak grafik */
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 10px;
@@ -114,7 +117,7 @@ main {
 
 .chart-container h2 {
   margin-top: 0;
-  color: #333;
+  color: #4B3832; /* Warna coklat kopi tua untuk judul grafik */
   font-size: 1.4em;
 }
 
@@ -126,28 +129,25 @@ section {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
-  background-color: #fff;
+  background-color: #fff; /* Warna putih untuk tabel transaksi */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 #transaction-table th,
 #transaction-table td {
-  padding: 12px;
-  text-align: left;
-  border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+    color: #000000; /* Ubah warna teks menjadi hitam */
 }
 
 #transaction-table thead {
-  background-color: #4a90e2;
-  color: #fff;
+    background-color: #c5c3c3; /* Warna kopi untuk header tabel */
+    color: #EFEFEF; /* Warna putih tulang untuk teks header tabel */
 }
 
 #transaction-table tbody tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-#total-revenue{
-  color:#f7f7f7;
+  background-color: #f2f2f2; /* Warna abu-abu terang untuk baris genap */
 }
 
 footer {
@@ -155,16 +155,41 @@ footer {
   padding: 15px;
   border-top: 3px solid #666;
   text-align: center;
-  color: #fff;
+  color: #EFEFEF; /* Warna putih tulang untuk teks footer */
 }
 
 .footer-links a {
   margin: 0 15px;
   text-decoration: none;
-  color: #fff;
+  color: #EFEFEF; /* Warna putih tulang untuk link footer */
   transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
   color: #ddd;
+} 
+
+/* Responsiveness */
+@media only screen and (max-width: 768px) {
+  .filter-group {
+    flex-direction: column;
+  }
+  
+  .filter-item {
+    margin-bottom: 10px;
+  }
+  
+  #total-revenue {
+    text-align: center;
+    font-size: 1.2em;
+    margin: 20px 0;
+  }
+
+  .chart-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .table-container {
+    overflow-x: auto;
+  }
 }
