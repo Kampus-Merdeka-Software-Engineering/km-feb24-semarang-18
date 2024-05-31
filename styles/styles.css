@@ -220,6 +220,7 @@ footer {
   .filter-group {
     align-items: flex-start;
   }
+  
 }
 
 @media (max-width: 480px) {
@@ -245,6 +246,10 @@ footer {
 
   #total-revenue {
     font-size: 1em;
+  }
+
+  #transaction-table{
+    width: auto;
   }
 }
 
