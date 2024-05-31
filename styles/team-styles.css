@@ -6,16 +6,16 @@ body {
     color: #EFEFEF; /* Warna putih tulang untuk teks */
 }
 
-.header-content {
+/* .header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
+} */
 
 header {
     background-color: #444; /* Warna kopi untuk header */
     color: #EFEFEF; /* Warna putih tulang untuk teks header */
-    padding: 20px;
+     padding: 20px; 
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -30,8 +30,8 @@ header {
     justify-content: center;
     position: relative;
     width: 100%;
-    max-width: 1200px; /* Membatasi lebar maksimal header-content */
-    padding: 0 20px; /* Menambahkan padding untuk memberi ruang bagi logo */
+/*  max-width: 1200px;  Membatasi lebar maksimal header-content */
+/*    padding:20px;  Menambahkan padding untuk memberi ruang bagi logo */
 }
 
 .logos {
@@ -47,7 +47,7 @@ header {
 
 h1 {
     margin: 0;
-    font-size: 36px;
+    /* font-size: 36px; */
     flex-grow: 1;
     text-align: left;
 }
