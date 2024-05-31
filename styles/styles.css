@@ -88,7 +88,7 @@ nav ul li a:hover {
   text-align: center;
   font-size: 1.5em;
   margin: 20px 0;
-  color: #EFEFEF; /* Warna putih tulang untuk teks */
+  color: #444; 
   font-weight: bold;
 }
 
@@ -218,7 +218,7 @@ footer {
   }
 
   .filter-group {
-    align-items: flex-start;
+    justify-content: space-around;
   }
   
 }
@@ -233,6 +233,7 @@ footer {
   }
 
   .filter-group {
+    justify-content: space-around;
     padding: 10px;
   }
 
@@ -249,7 +250,7 @@ footer {
   }
 
   #transaction-table{
-    width: 480px;
+    width: auto;
   }
 }
 
