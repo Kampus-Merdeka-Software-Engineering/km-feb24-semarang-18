@@ -9,6 +9,7 @@ body {
 header {
   background-color: #444; /* Kembalikan ke warna latar belakang asal */
   padding: 20px;
+  width: 100%;
   border-bottom: 3px solid #666;
   color: #fff; /* Warna teks */
 }
@@ -155,6 +156,7 @@ footer {
   padding: 15px;
   border-top: 3px solid #666;
   text-align: center;
+  width: 100%;
   color: #EFEFEF; /* Warna putih tulang untuk teks footer */
 }
 
@@ -271,4 +273,7 @@ footer {
 
 .table-container tbody tr:nth-child(even) {
   background-color: #f9f9f9;
+}
+.chart-grid h2{
+  text-align: center;
 }
