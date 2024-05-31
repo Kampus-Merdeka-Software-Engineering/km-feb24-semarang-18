@@ -15,13 +15,14 @@ body {
 header {
     background-color: #444; /* Warna kopi untuk header */
     color: #EFEFEF; /* Warna putih tulang untuk teks header */
-     padding: 20px; 
+    padding: 20px; 
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+    width: auto;
 }
 
 .header-content {
@@ -236,6 +237,7 @@ footer {
     padding: 15px;
     border-top: 3px solid #666;
     text-align: center;
+    width: auto;
     color: #EFEFEF; /* Warna putih tulang untuk teks footer */
 }
   
