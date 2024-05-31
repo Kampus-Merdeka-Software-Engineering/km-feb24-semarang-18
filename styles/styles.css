@@ -169,27 +169,106 @@ footer {
   color: #ddd;
 } 
 
-/* Responsiveness */
-@media only screen and (max-width: 768px) {
+/* Responsive Design */
+@media (max-width: 1200px) {
   .filter-group {
     flex-direction: column;
+    align-items: center;
   }
-  
+
   .filter-item {
     margin-bottom: 10px;
-  }
-  
-  #total-revenue {
-    text-align: center;
-    font-size: 1.2em;
-    margin: 20px 0;
+    width: 100%;
   }
 
   .chart-grid {
     grid-template-columns: 1fr;
   }
 
-  .table-container {
-    overflow-x: auto;
+  .chart-container {
+    margin-bottom: 20px;
   }
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .header-content {
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+
+  #total-revenue {
+    font-size: 1.2em;
+  }
+
+  .filter-group {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .filter-group {
+    padding: 10px;
+  }
+
+  .chart-container {
+    padding: 10px;
+  }
+
+  .filter-item {
+    width: 100%;
+  }
+
+  #total-revenue {
+    font-size: 1em;
+  }
+}
+
+.table-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-container th,
+.table-container td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+  color: #333;
+}
+
+.table-container thead {
+  background-color: #444;
+  color: #fff;
+}
+
+.table-container tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
 }
