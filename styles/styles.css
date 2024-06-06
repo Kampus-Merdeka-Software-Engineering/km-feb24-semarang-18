@@ -2,21 +2,15 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f2f2f2; /* Kembalikan ke warna latar belakang asal */
-  color: #333; /* Warna teks */
+  background-color: #cca869;
+  color: #4d351e;
 }
 
 header {
-  background-color: #444; /* Kembalikan ke warna latar belakang asal */
+  background-image: url("https://www.bitkaorigin.com/assets/myback/js/elFinder/files/mengenal-biji-kopi-bitkaorigin-jenis-biji-robusta.jpg");
   padding: 20px;
-  width: auto;
-  border-bottom: 3px solid #666;
-  color: #fff; /* Warna teks */
-}
-
-.filter-group {
-  background-color: #fff; /* Kembalikan ke warna latar belakang asal */
-  border-bottom: 2px solid #ccc;
+  border-bottom: 3px solid hsl(39, 49%, 15%);
+  color: #EFEFEF;
 }
 
 .header-content {
@@ -24,8 +18,6 @@ header {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  background-color: #444; /* Kembalikan ke warna latar belakang asal */;
-
 }
 
 nav ul {
@@ -41,23 +33,24 @@ nav ul li {
 
 nav ul li a {
   text-decoration: none;
-  color: #EFEFEF; /* Warna putih tulang untuk teks navbar */
+  color: #ede287;
   font-size: 1.1em;
   transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-  color: #ddd;
+  color: #eefeea;
 }
 
 .filter-group {
+  background-color: #fcf7f3;
+  border-bottom: 2px solid hsl(31, 31%, 26%);
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   padding: 20px;
-  background-color: #ffffff; /* Warna beige kopi untuk latar belakang filter */
-  border-bottom: 2px solid #ccc;
-  border-radius: 10px; /* Add rounded corners */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin: 20px;
 }
 
@@ -72,23 +65,23 @@ nav ul li a:hover {
 }
 
 .filter-item select {
-  padding: 10px; /* Increased padding for better click area */
+  padding: 10px;
   font-size: 1em;
-  border: 1px solid #ccc;
+  border: 1px solid #855b19;
   border-radius: 5px;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .filter-item select:hover {
-  border-color: #888;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add subtle shadow on hover */
+  border-color: #efac37;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
 #total-revenue {
   text-align: center;
   font-size: 1.5em;
   margin: 20px 0;
-  color: #444; 
+  color: #fcf7f3;
   font-weight: bold;
 }
 
@@ -104,9 +97,9 @@ main {
 }
 
 .chart-container {
-  background-color: #ffffff; /* Warna beige lembut untuk kotak grafik */
+  background-color: #ffffff;
   padding: 20px;
-  border: 1px solid #ddd;
+  border: 1px solid hsl(31, 31%, 26%);
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
@@ -118,7 +111,7 @@ main {
 
 .chart-container h2 {
   margin-top: 0;
-  color: #4B3832; /* Warna coklat kopi tua untuk judul grafik */
+  color: hsl(31, 31%, 26%);
   font-size: 1.4em;
 }
 
@@ -126,50 +119,58 @@ section {
   margin-bottom: 20px;
 }
 
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
 #transaction-table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
-  background-color: #fff; /* Warna putih untuk tabel transaksi */
+  background-color: #f6f1e6;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#transaction-table-section h2{
+  color: #fcf7f3;
 }
 
 #transaction-table th,
 #transaction-table td {
-    padding: 12px;
-    text-align: left;
-    border: 1px solid #ddd;
-    color: #000000; /* Ubah warna teks menjadi hitam */
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #693f3f;
+  color: #000000;
 }
 
 #transaction-table thead {
-    background-color: #c5c3c3; /* Warna kopi untuk header tabel */
-    color: #EFEFEF; /* Warna putih tulang untuk teks header tabel */
+  background-color: #ccb181;
+  color: #eee6e6;
 }
 
 #transaction-table tbody tr:nth-child(even) {
-  background-color: #f2f2f2; /* Warna abu-abu terang untuk baris genap */
+  background-color: #f2f2f2;
 }
 
 footer {
-  background-color: #444;
+  background-color: #684125;
   padding: 15px;
-  border-top: 3px solid #666;
+  border-top: 3px solid #684125;
   text-align: center;
-  width: auto;
-  color: #EFEFEF; /* Warna putih tulang untuk teks footer */
+  color: #EFEFEF;
 }
 
 .footer-links a {
   margin: 0 15px;
   text-decoration: none;
-  color: #EFEFEF; /* Warna putih tulang untuk link footer */
+  color: #EFEFEF;
   transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
   color: #ddd;
-} 
+}
 
 /* Responsive Design */
 @media (max-width: 1200px) {
@@ -218,9 +219,8 @@ footer {
   }
 
   .filter-group {
-    justify-content: space-around;
+    align-items: flex-start;
   }
-  
 }
 
 @media (max-width: 480px) {
@@ -233,7 +233,6 @@ footer {
   }
 
   .filter-group {
-    justify-content: space-around;
     padding: 10px;
   }
 
@@ -247,10 +246,6 @@ footer {
 
   #total-revenue {
     font-size: 1em;
-  }
-
-  #transaction-table{
-    width: auto;
   }
 }
 
@@ -273,13 +268,10 @@ footer {
 }
 
 .table-container thead {
-  background-color: #444;
+  background-color: #fff;
   color: #fff;
 }
 
 .table-container tbody tr:nth-child(even) {
   background-color: #f9f9f9;
-}
-.chart-grid h2{
-  text-align: center;
 }

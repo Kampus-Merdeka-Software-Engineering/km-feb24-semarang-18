@@ -2,27 +2,26 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #4B3832; /* Warna coklat kopi */
-    color: #EFEFEF; /* Warna putih tulang untuk teks */
+    background-color: #cca869; /* Warna coklat kopi */
+    color: #fff9f5; /* Warna putih tulang untuk teks */
 }
 
-/* .header-content {
+.header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-} */
+}
 
 header {
-    background-color: #444; /* Warna kopi untuk header */
+    background-color: #684125; /* Warna kopi untuk header */
     color: #EFEFEF; /* Warna putih tulang untuk teks header */
-    padding: 20px; 
+    padding: 20px;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    width: auto;
 }
 
 .header-content {
@@ -31,8 +30,8 @@ header {
     justify-content: center;
     position: relative;
     width: 100%;
-/*  max-width: 1200px;  Membatasi lebar maksimal header-content */
-/*    padding:20px;  Menambahkan padding untuk memberi ruang bagi logo */
+    max-width: 1200px; /* Membatasi lebar maksimal header-content */
+    padding: 0 20px; /* Menambahkan padding untuk memberi ruang bagi logo */
 }
 
 .logos {
@@ -48,7 +47,7 @@ header {
 
 h1 {
     margin: 0;
-    /* font-size: 36px; */
+    font-size: 36px;
     flex-grow: 1;
     text-align: left;
 }
@@ -58,13 +57,205 @@ h1 {
     flex-wrap: wrap;
     justify-content: center;
     padding: 30px;
-    background-color: #cac6c6; /* Warna beige kopi untuk latar belakang tim */
+    background-color: #cca869; /* Warna beige kopi untuk latar belakang tim */
 }
 
 .team-member {
-    background-color: #EFEFEF; /* Warna beige lembut untuk kotak anggota tim */
+    background-color: #cca869; /* Warna beige lembut untuk kotak anggota tim */
     border-radius: 15px;
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    margin: 15px;
+    text-align: center;
+    width: 270px;
+    padding: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+}
+
+.team-member img {
+    border-radius: 50%;
+    width: 140px;
+    height: 140px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.team-member h2 {
+    font-size: 26px;
+    margin: 15px 0 10px;
+    color: #4B3832; /* Warna coklat kopi tua untuk nama anggota tim */
+}
+
+.team-member p {
+    font-size: 16px;
+    color: #6D4C41; /* Warna coklat abu-abu untuk deskripsi */
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .team-member {
+        width: 45%; /* Menyesuaikan ukuran anggota tim */
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 15px;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+    }
+
+    .logos {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .logo {
+        width: 50px;
+        height: 50px;
+    }
+    
+    h1 {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .team-member {
+        width: 100%; /* Ukuran penuh untuk layar yang lebih kecil */
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 10px;
+    }
+    
+    .logo {
+        width: 40px;
+        height: 40px;
+    }
+    
+    h1 {
+        font-size: 24px;
+    }
+
+    .team-member {
+        padding: 15px;
+    }
+}
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+    max-width: 500px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #cca869; 
+    color: #EFEFEF; /* Warna putih tulang untuk teks */
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header {
+    background-color: #684125; 
+    color: #EFEFEF; /* Warna putih tulang untuk teks header */
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    max-width: 1200px; /* Membatasi lebar maksimal header-content */
+    padding: 0 20px; /* Menambahkan padding untuk memberi ruang bagi logo */
+}
+
+.logos {
+    margin-right: 15px;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    margin: 0;
+    font-size: 36px;
+    flex-grow: 1;
+    text-align: left;
+}
+
+.team {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 30px;
+    background-color: #cca869; /* Warna beige kopi untuk latar belakang tim */
+}
+
+.team-member {
+    background-color: #ebe0d6; /* Warna beige lembut untuk kotak anggota tim */
+    border-radius: 15px;
+    box-shadow: 0 6px 10px #3a2615;
     margin: 15px;
     text-align: center;
     width: 270px;
@@ -223,21 +414,79 @@ nav ul li {
 
 nav ul li a {
   text-decoration: none;
-  color: #fff;
+  color: #ede287;
   font-size: 1.1em;
   transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-  color: #ddd;
+  color: #eefeea;
 }
 
 footer {
-    background-color: #444;
+    background-color: #684125;
     padding: 15px;
-    border-top: 3px solid #666;
+    border-top: 3px solid #dec9b5;
     text-align: center;
-    width: auto;
+    color: #EFEFEF; /* Warna putih tulang untuk teks footer */
+}
+  
+.footer-links a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #EFEFEF; /* Warna putih tulang untuk link footer */
+    transition: color 0.3s ease;
+}
+  
+.footer-links a:hover {
+    color: #ddd;
+}
+
+
+/* Animasi scroll */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 40px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.team-member {
+    animation: fadeInUp 1s ease-out;
+}
+
+/* Nav Bar Styles for Our Team Page */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+nav ul li {
+  margin-right: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #ede287;
+  font-size: 1.1em;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #eefeea;
+}
+
+footer {
+    background-color: #684125;
+    padding: 15px;
+    border-top: 3px solid #684125;
+    text-align: center;
     color: #EFEFEF; /* Warna putih tulang untuk teks footer */
 }
   
