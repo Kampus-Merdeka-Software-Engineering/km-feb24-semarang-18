@@ -25,21 +25,27 @@ nav ul {
   padding: 0;
   margin: 0;
   display: flex;
+
 }
 
 nav ul li {
   margin-right: 20px;
+  background-color: #ffe09d; /* Warna latar belakang untuk setiap item */
+  padding: 10px; /* Padding di sekitar teks untuk memberikan ruang */
+  border-radius: 5px; /* (Opsional) Membuat sudut latar belakang bulat */
 }
+
 
 nav ul li a {
   text-decoration: none;
-  color: #ede287;
+  color: #5b4315;
   font-size: 1.1em;
   transition: color 0.3s ease;
+  font-weight: bold;
 }
 
 nav ul li a:hover {
-  color: #eefeea;
+  color: #c66229;
 }
 
 .filter-group {
